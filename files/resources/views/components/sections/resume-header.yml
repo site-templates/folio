@@ -1,0 +1,50 @@
+# The visual editor's contract for sections/resume-header.blade.php.
+title: Resume header
+description: The resume masthead — name, role, contact line, and the download button
+fields:
+    label:
+        type: text
+        label: Index label
+        default: "04 · Resume"
+    name:
+        type: text
+        label: Name
+        default: "Kai Sato"
+    role:
+        type: text
+        label: Role
+        default: "Staff Design Engineer"
+    summary:
+        type: textarea
+        label: Summary
+        rows: 3
+        default: "Ten years across design and engineering, specialized in the seam between them: design systems, product interfaces, and the motion and states that make software feel finished."
+    email:
+        type: text
+        label: Email
+        default: "hello@kaisato.dev"
+    location:
+        type: text
+        label: Location
+        default: "San Francisco, CA"
+    website:
+        type: text
+        label: Website
+        default: "kaisato.dev"
+    showDownload:
+        type: toggle
+        label: Show download button
+        default: "1"
+    downloadText:
+        type: text
+        label: Download button text
+        default: "Download PDF"
+    downloadLink:
+        type: url
+        label: Download link
+        description: Link to a hosted PDF. The page also prints clean with Cmd-P.
+        default: "#"
+    printHint:
+        type: text
+        label: Print hint prefix
+        default: "or press"

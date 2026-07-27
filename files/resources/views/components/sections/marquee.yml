@@ -1,0 +1,9 @@
+# The visual editor's contract for sections/marquee.blade.php. The terms
+# come from site.json's stack key via the page's bound items attribute.
+title: Stack marquee
+description: A slow mono ticker of tools and technologies between hairlines
+fields:
+    label:
+        type: text
+        label: Screen-reader label
+        default: "Tools of the trade"

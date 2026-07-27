@@ -1,0 +1,27 @@
+# The visual editor's contract for sections/experience-list.blade.php. The
+# rows come from resources/data/collections/experience.json via the page's
+# bound items attribute — edit roles there.
+title: Experience
+description: The role timeline — mono dates, roles, and companies, fed by the experience collection
+fields:
+    label:
+        type: text
+        label: Index label
+        description: The small mono line above the heading. Leave empty to hide.
+        default: ""
+    heading:
+        type: text
+        label: Heading
+        description: Leave empty to hide.
+        default: ""
+    variant:
+        type: select
+        label: Detail level
+        options:
+            full: Full — with descriptions
+            compact: Compact — roles only
+        default: "full"
+    currentText:
+        type: text
+        label: Current-role badge
+        default: "Now"

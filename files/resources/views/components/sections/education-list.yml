@@ -1,0 +1,15 @@
+# The visual editor's contract for sections/education-list.blade.php. The
+# rows come from resources/data/collections/education.json via the page's
+# bound items attribute.
+title: Education
+description: Education rows in the timeline grammar — fed by the education collection
+fields:
+    label:
+        type: text
+        label: Index label
+        description: Leave empty to hide.
+        default: ""
+    heading:
+        type: text
+        label: Heading
+        default: "Education"

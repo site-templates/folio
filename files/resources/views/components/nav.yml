@@ -1,0 +1,37 @@
+# The visual editor's contract for components/nav.blade.php — these fields
+# surface under the Layout tab. Field names are camelCase, matching the props
+# they fill. The links repeater stores into site.json's nav_links key via the
+# layout's bound attribute.
+title: Navigation
+description: The fixed top bar — mark, name, links, and the contact button
+fields:
+    brand:
+        type: text
+        label: Name
+        default: "Kai Sato"
+    links:
+        type: repeater
+        label: Navigation links
+        add_button_label: "Add link"
+        item_label: text
+        sub_fields:
+            text:
+                type: text
+                label: Text
+                default: "New link"
+            url:
+                type: url
+                label: Link
+                default: "/"
+    showCta:
+        type: toggle
+        label: Show contact button
+        default: "1"
+    ctaText:
+        type: text
+        label: Button text
+        default: "Get in touch"
+    ctaLink:
+        type: url
+        label: Button link
+        default: "mailto:hello@kaisato.dev"

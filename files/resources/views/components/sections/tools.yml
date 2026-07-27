@@ -1,0 +1,18 @@
+# The visual editor's contract for sections/tools.blade.php. The cards come
+# from site.json's tools key via the page's bound items attribute.
+title: Uses grid
+description: Mono-labelled cards for the setup — editor, terminal, stack, hardware
+fields:
+    label:
+        type: text
+        label: Index label
+        default: "03 · Uses"
+    heading:
+        type: text
+        label: Heading
+        default: "The setup"
+    body:
+        type: textarea
+        label: Side note
+        rows: 2
+        default: "The tools change slower than the work does. Current answers to the question everyone asks anyway."

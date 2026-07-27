@@ -1,0 +1,22 @@
+# The visual editor's contract for sections/page-header.blade.php.
+title: Page header
+description: The interior-page opener — mono index label, two-tone headline, optional intro copy
+fields:
+    label:
+        type: text
+        label: Index label
+        description: The small mono line above the headline, e.g. "01 · Projects".
+        default: "01 · Index"
+    headingInk:
+        type: text
+        label: Headline
+        default: "Selected work,"
+    headingMuted:
+        type: text
+        label: Headline (muted tail)
+        default: "built to last."
+    body:
+        type: textarea
+        label: Intro copy
+        rows: 3
+        default: ""

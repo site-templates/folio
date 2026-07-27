@@ -1,0 +1,30 @@
+# The visual editor's contract for sections/project-hero.blade.php. The
+# project itself comes from resources/data/collections/project.json — this
+# yml only owns the labels around it.
+title: Project hero
+description: The case-study opener — title, summary, metadata rail, and cover image from the project entry
+fields:
+    label:
+        type: text
+        label: Kicker label
+        default: "Case study"
+    labelClient:
+        type: text
+        label: Client label
+        default: "Client"
+    labelYear:
+        type: text
+        label: Year label
+        default: "Year"
+    labelRole:
+        type: text
+        label: Role label
+        default: "Role"
+    labelStack:
+        type: text
+        label: Stack label
+        default: "Stack"
+    externalText:
+        type: text
+        label: Live-link text
+        default: "Visit live"

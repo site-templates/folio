@@ -1,0 +1,10 @@
+# The visual editor's contract for sections/writing-header.blade.php. The
+# essay itself comes from resources/data/collections/writing.json — this yml
+# only owns the kicker label.
+title: Writing header
+description: The centered essay opener — date, read time, title, and standfirst from the writing entry
+fields:
+    label:
+        type: text
+        label: Kicker label
+        default: "Writing"

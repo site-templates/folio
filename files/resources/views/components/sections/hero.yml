@@ -1,0 +1,66 @@
+# The visual editor's contract for sections/hero.blade.php: each field maps
+# to a prop in the component's props block. Field names are camelCase.
+title: Hero
+description: The opening statement — availability chip, two-tone display headline, intro copy, and the metadata rail
+fields:
+    showStatus:
+        type: toggle
+        label: Show availability chip
+        default: "1"
+    statusText:
+        type: text
+        label: Availability text
+        default: "Available for select projects"
+    avatar:
+        type: image
+        label: Avatar
+        default: "https://assets.ui.sh/avatars/3.webp?size=160"
+    avatarAlt:
+        type: text
+        label: Avatar alt text
+        default: "Portrait of Kai Sato"
+    headingInk:
+        type: text
+        label: Headline (first line)
+        default: "I design and build software"
+    headingMuted:
+        type: text
+        label: Headline (second line, muted)
+        default: "with unreasonable attention to detail."
+    body:
+        type: textarea
+        label: Intro copy
+        rows: 4
+        default: "Design engineer in San Francisco. For the last decade I have lived in the space between the design file and the codebase — shipping products, systems, and the occasional beautiful dead end."
+    labelLocation:
+        type: text
+        label: Meta label 1
+        default: "Location"
+    valueLocation:
+        type: text
+        label: Meta value 1
+        default: "San Francisco, CA"
+    labelCurrently:
+        type: text
+        label: Meta label 2
+        default: "Currently"
+    valueCurrently:
+        type: text
+        label: Meta value 2
+        default: "Staff Design Engineer, Northwind"
+    labelEmail:
+        type: text
+        label: Email label
+        default: "Email"
+    valueEmail:
+        type: text
+        label: Email address
+        default: "hello@kaisato.dev"
+    showScrollHint:
+        type: toggle
+        label: Show scroll hint
+        default: "1"
+    scrollHint:
+        type: text
+        label: Scroll hint text
+        default: "scroll"

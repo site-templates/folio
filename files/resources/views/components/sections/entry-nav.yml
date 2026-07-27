@@ -1,0 +1,18 @@
+# The visual editor's contract for sections/entry-nav.blade.php. The next
+# entry's title and link ride in from the collection entry via bound
+# attributes; the labels are editable here.
+title: Entry navigation
+description: Back-to-index link and the next-entry invitation at the end of a case study or essay
+fields:
+    allText:
+        type: text
+        label: Back-link text
+        default: "All projects"
+    allLink:
+        type: url
+        label: Back link
+        default: "/projects"
+    nextLabel:
+        type: text
+        label: Next-entry kicker
+        default: "Next up"

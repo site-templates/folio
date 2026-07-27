@@ -1,0 +1,6 @@
+# The visual editor's contract for sections/entry-body.blade.php. The body
+# HTML comes from the collection entry's content key via the page's bound
+# attribute — edit it in the collection.
+title: Entry body
+description: The long-form prose body from the collection entry
+fields: false

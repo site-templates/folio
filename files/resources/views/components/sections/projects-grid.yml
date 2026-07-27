@@ -1,0 +1,33 @@
+# The visual editor's contract for sections/projects-grid.blade.php. The
+# cards themselves come from resources/data/collections/project.json via the
+# page's bound items attribute — edit projects there.
+title: Project grid
+description: Large project cards, two across, with parallax imagery — fed by the project collection
+fields:
+    label:
+        type: text
+        label: Index label
+        description: The small mono line above the heading. Leave empty to hide.
+        default: ""
+    heading:
+        type: text
+        label: Heading
+        description: Leave empty to hide the heading row.
+        default: ""
+    featuredOnly:
+        type: toggle
+        label: Featured projects only
+        description: Show only entries flagged featured in the project collection.
+        default: ""
+    showAll:
+        type: toggle
+        label: Show the all-projects link
+        default: ""
+    allText:
+        type: text
+        label: All-projects link text
+        default: "All projects"
+    allLink:
+        type: url
+        label: All-projects link
+        default: "/projects"

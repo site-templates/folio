@@ -1,0 +1,14 @@
+# The visual editor's contract for sections/skills-grid.blade.php. The pairs
+# come from site.json's skills key via the page's bound items attribute.
+title: Capabilities
+description: Name-plus-detail capability pairs, two across — fed by site.json's skills list
+fields:
+    label:
+        type: text
+        label: Index label
+        description: Leave empty to hide.
+        default: ""
+    heading:
+        type: text
+        label: Heading
+        default: "Capabilities"

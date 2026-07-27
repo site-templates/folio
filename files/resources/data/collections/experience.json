@@ -1,0 +1,34 @@
+[
+    {
+        "dates": "2024 · Present",
+        "role": "Staff Design Engineer",
+        "company": "Northwind",
+        "location": "San Francisco, CA",
+        "current": "1",
+        "description": "Leading design engineering for the analytics platform. Shipped Pulse — realtime analytics used by 900 customer teams — and rebuilt the design system into one source of truth spanning 140 components across web and docs."
+    },
+    {
+        "dates": "2021 · 2024",
+        "role": "Senior Product Engineer",
+        "company": "Prism Labs",
+        "location": "Remote",
+        "current": "",
+        "description": "Owned the incident and reliability surface end to end. Led Beacon, the honest status page adopted by 900 engineering teams, and grew the frontend platform team from two to six while keeping the interface budget under 100KB."
+    },
+    {
+        "dates": "2018 · 2021",
+        "role": "Frontend Engineer",
+        "company": "Hatch Studio",
+        "location": "Portland, OR",
+        "current": "",
+        "description": "Built marketing sites and product interfaces for early-stage clients — 30+ launches across fintech, healthcare, and developer tools. Learned that shipped and polished beats ambitious and stuck, on every timeline that matters."
+    },
+    {
+        "dates": "2016 · 2018",
+        "role": "Designer + Developer",
+        "company": "Independent",
+        "location": "Portland, OR",
+        "current": "",
+        "description": "Freelance interface design and build for small teams that couldn't hire both. The two-hats constraint became the career: the seams between design and code stopped existing because nobody else was there to own them."
+    }
+]

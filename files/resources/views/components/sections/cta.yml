@@ -1,0 +1,33 @@
+# The visual editor's contract for sections/cta.blade.php.
+title: Contact CTA
+description: The closing invitation — two-tone heading and the email-address button on the dotted grid
+fields:
+    label:
+        type: text
+        label: Index label
+        default: "Next"
+    headingInk:
+        type: text
+        label: Heading
+        default: "Have an idea worth building?"
+    headingMuted:
+        type: text
+        label: Heading (muted tail)
+        default: "Let’s talk."
+    body:
+        type: textarea
+        label: Supporting copy
+        rows: 3
+        default: "I take on a small number of collaborations each year — products, design systems, and prototypes that deserve real attention."
+    buttonText:
+        type: text
+        label: Button text
+        default: "hello@kaisato.dev"
+    buttonLink:
+        type: url
+        label: Button link
+        default: "mailto:hello@kaisato.dev"
+    note:
+        type: text
+        label: Note under the button
+        default: "Usually replies within 24 hours"

@@ -1,0 +1,22 @@
+{
+    "name": "Folio",
+    "dialect": "blade",
+    "description": "A developer's portfolio with a two-tone statement hero, GSAP scroll motion, collection-driven case studies, writings, and a data-driven resume.",
+    "icon": "🗂️",
+    "repo": "https://github.com/site-templates/folio",
+    "order": 17,
+    "category": "portfolio",
+    "theme": "light",
+    "accent": "#1c1917",
+    "themeable": true,
+    "palette": "slate",
+    "fonts": "geist",
+    "appearance": "light",
+    "pages": [
+        "Home",
+        "Projects",
+        "Writings",
+        "About",
+        "Resume"
+    ]
+}

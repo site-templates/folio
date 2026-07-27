@@ -1,0 +1,21 @@
+# The visual editor's contract for sections/now.blade.php. The list items
+# come from site.json's now_items key via the page's bound items attribute.
+title: Now panel
+description: A terminal window listing what's currently in flight — fed by site.json's now list
+fields:
+    label:
+        type: text
+        label: Index label
+        default: "02 · Now"
+    heading:
+        type: text
+        label: Heading
+        default: "What I’m up to"
+    promptPath:
+        type: text
+        label: Terminal path
+        default: "~/now"
+    updated:
+        type: text
+        label: Updated stamp
+        default: "Updated July 2026"

@@ -1,0 +1,136 @@
+{
+    "name": "Folio",
+    "theme": {
+        "palette": "slate",
+        "fonts": "geist",
+        "fonts_url": "https://fonts.googleapis.com/css2?family=Geist:wght@400..650&family=Geist+Mono:wght@400;500&display=swap",
+        "appearance": "light",
+        "appearance_class": ""
+    },
+    "nav_links": [
+        {
+            "text": "Projects",
+            "url": "/projects"
+        },
+        {
+            "text": "Writings",
+            "url": "/writings"
+        },
+        {
+            "text": "About",
+            "url": "/about"
+        },
+        {
+            "text": "Resume",
+            "url": "/resume"
+        }
+    ],
+    "social_links": [
+        {
+            "text": "GitHub",
+            "url": "https://github.com"
+        },
+        {
+            "text": "Twitter",
+            "url": "https://twitter.com"
+        },
+        {
+            "text": "Dribbble",
+            "url": "https://dribbble.com"
+        },
+        {
+            "text": "LinkedIn",
+            "url": "https://linkedin.com"
+        }
+    ],
+    "stack": [
+        {
+            "text": "TypeScript"
+        },
+        {
+            "text": "React"
+        },
+        {
+            "text": "Next.js"
+        },
+        {
+            "text": "Tailwind CSS"
+        },
+        {
+            "text": "Laravel"
+        },
+        {
+            "text": "PostgreSQL"
+        },
+        {
+            "text": "Figma"
+        },
+        {
+            "text": "Swift"
+        },
+        {
+            "text": "GSAP"
+        },
+        {
+            "text": "Rust"
+        }
+    ],
+    "now_items": [
+        {
+            "text": "Leading the design system rebuild at Northwind — 140 components, one source of truth."
+        },
+        {
+            "text": "Writing a small book of essays on design engineering. Two chapters in."
+        },
+        {
+            "text": "Building Terminal Kit v2 in the open — follow along on GitHub."
+        },
+        {
+            "text": "Learning Rust properly this time. The borrow checker and I are almost friends."
+        }
+    ],
+    "tools": [
+        {
+            "name": "Editor",
+            "note": "Zed, with a bare config and one keybinding I refuse to explain"
+        },
+        {
+            "name": "Terminal",
+            "note": "Ghostty + zsh, no plugins worth mentioning"
+        },
+        {
+            "name": "Design",
+            "note": "Figma for thinking, the browser for deciding"
+        },
+        {
+            "name": "Stack",
+            "note": "TypeScript, React, Next.js — boring on purpose"
+        },
+        {
+            "name": "Notes",
+            "note": "Plain markdown files in a git repo, like a caveman"
+        },
+        {
+            "name": "Hardware",
+            "note": "M4 MacBook Pro, one external display, paper notebook"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Product engineering",
+            "detail": "TypeScript, React, Next.js, Node, REST and GraphQL APIs"
+        },
+        {
+            "name": "Interface design",
+            "detail": "Design systems, prototyping, typography, motion design"
+        },
+        {
+            "name": "Frontend craft",
+            "detail": "CSS architecture, accessibility, performance budgets, GSAP"
+        },
+        {
+            "name": "Tooling",
+            "detail": "CLI development, build pipelines, developer experience"
+        }
+    ]
+}

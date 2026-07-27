@@ -1,0 +1,67 @@
+[
+    {
+        "slug": "the-space-between",
+        "title": "The space between design and code",
+        "description": "Design engineering isn't a hybrid role. It's the refusal to let the interesting problems fall into the gap between two job titles.",
+        "date": "2026-05-18",
+        "dateFormatted": "May 18, 2026",
+        "readTime": "6 min read",
+        "featured": "1",
+        "link": "/writing/the-space-between",
+        "content": "<p class=\"lead\">Every interesting interface problem I've worked on lived in the space between the design file and the codebase — and in most organizations, that space is nobody's job.</p><p>The designer hands off a static frame. The engineer implements what the frame shows. And everything the frame cannot show — how the transition feels at 60fps versus 30, what happens in the 400 milliseconds while data loads, how the layout breathes between breakpoints, what the keyboard user experiences — gets decided by whoever happens to be typing, usually under deadline, usually without noticing a decision was made.</p><h2>The gap has a shape</h2><p>You can list what falls into it: motion, loading states, error states, focus order, scroll behavior, the feel of drag, the timing of everything. None of these are in the mockup. All of them are the product. A button is a rectangle in Figma; whether it feels solid or mushy is decided entirely in the gap.</p><p>Teams sense this, which is why handoff rituals keep growing — redlines, annotations, motion specs, hour-long walkthroughs. These help, but they're fundamentally lossy compression. The design intent is a living thing, and every artifact flattens it.</p><h2>What design engineering actually is</h2><p>The fix isn't better documents. It's a person who refuses to let the gap exist — someone who can open the design file and question the spacing system, then open the codebase and change the easing curve, and who considers both actions the same job.</p><blockquote>The title doesn't matter. The refusal does.</blockquote><p>I've seen this role called UX engineer, design technologist, creative developer, front-of-the-frontend. The common thread is ownership of the seam: when something feels wrong, the design engineer doesn't file a ticket across the wall — they fix it, because there is no wall.</p><h2>How to hire for it</h2><p>Don't screen for the union of two skill sets; you'll reject everyone honest. Screen for the instinct. Ask a candidate to critique a real interface, and listen for whether they move fluidly between why the hierarchy fails and why the scroll stutters. The ones who don't notice a difference between those two questions are the ones you want.</p>",
+        "nextTitle": "Choose boring tools, ship interesting work",
+        "nextLink": "/writing/boring-tools"
+    },
+    {
+        "slug": "boring-tools",
+        "title": "Choose boring tools, ship interesting work",
+        "description": "Novelty is a budget. Spend it on the product, not the plumbing.",
+        "date": "2026-02-09",
+        "dateFormatted": "February 9, 2026",
+        "readTime": "5 min read",
+        "featured": "1",
+        "link": "/writing/boring-tools",
+        "content": "<p class=\"lead\">Every project gets a novelty budget: a finite amount of unfamiliarity the team can absorb before velocity collapses. The mistake is spending it on infrastructure instead of the product.</p><p>The failure mode is always the same and always sincere. A new project kicks off, energy is high, and someone proposes the interesting stack — the new framework, the new database, the deployment platform from the conference talk. Each choice is individually defensible. Together they guarantee that month three is spent debugging the plumbing instead of learning what users need.</p><h2>Boring is a technical term</h2><p>Boring doesn't mean bad, and it doesn't mean old. It means the failure modes are documented. When Postgres does something surprising, a decade of Stack Overflow answers is waiting. When the framework released eight months ago does something surprising, you're reading its source at midnight — and you budgeted zero hours for that.</p><ul><li>Boring tools have known failure modes; novel tools have undiscovered ones</li><li>Boring tools let new teammates contribute in days, not weeks</li><li>Boring tools make your bugs your fault — which means fixable</li></ul><h2>Where to spend instead</h2><p>The point of a boring foundation is to make room for ambition where users can feel it. Spend the novelty budget on the interaction that has no established pattern, the visualization nobody's built, the feature that justifies the product's existence. That's the work that deserves your midnight source-reading.</p><blockquote>Innovate in the product. Standardize in the plumbing. Never both, never neither.</blockquote><p>The portfolios I admire most are full of interesting work shipped on aggressively conventional stacks. The correlation isn't an accident — it's the budget, spent well.</p>",
+        "nextTitle": "Notes on taste",
+        "nextLink": "/writing/notes-on-taste"
+    },
+    {
+        "slug": "notes-on-taste",
+        "title": "Notes on taste",
+        "description": "Taste isn't knowing what's good. It's noticing what's wrong — earlier, and in more dimensions, than most people bother to look.",
+        "date": "2025-11-03",
+        "dateFormatted": "November 3, 2025",
+        "readTime": "7 min read",
+        "featured": "1",
+        "link": "/writing/notes-on-taste",
+        "content": "<p class=\"lead\">People talk about taste like it's a possession — you have it or you don't. After fifteen years of interface work, I think taste is something narrower and more learnable: the trained habit of noticing what's wrong before you can articulate why.</p><h2>Taste is resolution</h2><p>Show a great designer and a junior designer the same screen. Both might say something's off. The difference is resolution: the great designer sees that the type is optically misaligned with the icon, the spacing rhythm breaks at the third card, and the transition eases in when it should ease out. Same feeling, higher resolution. Taste is the number of dimensions you perceive at once.</p><p>This is why taste is learnable. Resolution comes from exposure plus attention — thousands of hours of looking at work while asking what specifically makes this good. The looking alone isn't enough; plenty of people consume great design all day and absorb nothing, because consuming isn't interrogating.</p><h2>Build the reference library</h2><p>Practically: keep a folder of interfaces that stopped you, and for each one, write the sentence that explains the stop. The sentence is the exercise — it converts a feeling into a dimension you can now see everywhere. My folder is eleven years old and the early entries are embarrassing, which is the point. Embarrassment at your old taste is the receipt for the new taste.</p><blockquote>You can't buy taste, but you can compound it. The interest rate is attention.</blockquote><h2>Taste under deadline</h2><p>The real test isn't recognizing quality at leisure — it's ranking flaws under pressure. Shipping means choosing which wrongness survives to production, and the taste that matters professionally is knowing the misaligned icon costs you nothing while the mushy transition costs you the demo. Perfectionism is taste without prioritization, and it ships nothing.</p><h2>The uncomfortable part</h2><p>Taste grows faster than skill. There's a long stretch where you can see exactly what's wrong with your own work and can't yet fix it. Most people quit in that gap. The ones who don't are the ones whose work you eventually keep in your folder.</p>",
+        "nextTitle": "Finish your side projects",
+        "nextLink": "/writing/finish-your-side-projects"
+    },
+    {
+        "slug": "finish-your-side-projects",
+        "title": "Finish your side projects",
+        "description": "Shipping is a muscle, and side projects are where you train it without a client watching.",
+        "date": "2025-07-21",
+        "dateFormatted": "July 21, 2025",
+        "readTime": "4 min read",
+        "featured": "",
+        "link": "/writing/finish-your-side-projects",
+        "content": "<p class=\"lead\">The graveyard of 80%-done side projects isn't a motivation problem. It's a skill gap — because finishing is a different skill than building, and most of us only ever practice building.</p><p>The first 80% of a project is the fun part: green fields, fast progress, every day visibly better than the last. The final 20% is error states, empty states, the settings page, the onboarding, the cut list. It's deciding what the thing is by deciding what it isn't. Client work forces you through this; side projects let you escape to a new green field instead.</p><h2>Why it matters professionally</h2><p>Every meaningful career step I've made traces back to something finished. Not big — finished. The icon set got me the conference talk. The journaling app got me the job interview. A finished small thing beats an ambitious dead repo every time, because finished work is the only kind that can travel without you standing next to it explaining what it was going to be.</p><h2>The mechanics of finishing</h2><ul><li>Define done in writing before you start — scope creep is unfalsifiable otherwise</li><li>Cut features, never quality; a small polished thing outranks a large rough one</li><li>Set a ship date tied to something external you can't move</li><li>The last week is only allowed to remove things</li></ul><blockquote>A side project isn't practice for building. You already know how to build. It's practice for shipping.</blockquote><p>My rule now is one in flight at a time, and nothing new starts until the current one has a URL. It's cost me a dozen exciting starts — and given me the six finished things this site is actually made of.</p>",
+        "nextTitle": "I still write CSS by hand",
+        "nextLink": "/writing/css-by-hand"
+    },
+    {
+        "slug": "css-by-hand",
+        "title": "I still write CSS by hand",
+        "description": "The layer where design becomes real deserves a craftsman's attention, not a generator's defaults.",
+        "date": "2025-03-14",
+        "dateFormatted": "March 14, 2025",
+        "readTime": "5 min read",
+        "featured": "",
+        "link": "/writing/css-by-hand",
+        "content": "<p class=\"lead\">Yes, I use Tailwind. Yes, I reach for component libraries when they fit. And still, on every project that matters, there's a file of hand-written CSS where the actual feel of the thing lives — and I'd argue that file is the most leveraged code I write.</p><h2>What lives in that file</h2><p>Open it on any of my projects and you'll find the same categories: easing curves tuned by eye, a reveal system, selection and focus styles, scrollbar treatment, the prose typography, and the two or three signature moves that make the site feel like itself instead of like its framework. Rarely more than 400 lines. Always the 400 lines people comment on.</p><pre><code>/* fast in, long soft settle — tuned, not defaulted */\n--ease-spring: cubic-bezier(0.16, 1, 0.3, 1);</code></pre><h2>The argument</h2><p>CSS is where design intent survives contact with the browser, or doesn't. An easing curve is a personality trait. A focus ring is a statement about who you built for. Utilities are excellent at applying decisions quickly — but the decisions themselves have to come from somewhere, and defaults are decisions someone else made for a product that isn't yours.</p><blockquote>Handwriting CSS isn't nostalgia. It's the difference between choosing your defaults and inheriting them.</blockquote><h2>A craft argument, not a tooling one</h2><p>This isn't utilities-versus-vanilla — my hand-written layer rides on top of Tailwind's tokens and happily uses its color-mix output. The argument is about attention: somewhere in your stack there should be a layer that exists only because a person looked at the rendered result and adjusted it until it felt right. Feel is not generatable, because feel is a sequence of judgments. That layer is where the judgments go.</p>",
+        "nextTitle": "",
+        "nextLink": ""
+    }
+]

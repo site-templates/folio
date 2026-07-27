@@ -1,0 +1,42 @@
+# The visual editor's contract for components/footer.blade.php — surfaces
+# under the Layout tab. The socials repeater stores into site.json's
+# social_links key via the layout's bound attribute.
+title: Footer
+description: The site-wide footer — mark, tagline, social links, and the meta line
+fields:
+    name:
+        type: text
+        label: Name
+        default: "Kai Sato"
+    tagline:
+        type: textarea
+        label: Tagline
+        rows: 2
+        default: "Design engineer. I build interfaces and the systems behind them."
+    socials:
+        type: repeater
+        label: Social links
+        add_button_label: "Add link"
+        item_label: text
+        sub_fields:
+            text:
+                type: text
+                label: Label
+                default: "GitHub"
+            url:
+                type: url
+                label: Link
+                default: "https://github.com"
+    copyright:
+        type: text
+        label: Copyright line
+        default: "© 2026 Kai Sato"
+    metaLine:
+        type: text
+        label: Meta line
+        description: The mono line beside the copyright — coordinates, a motto, anything.
+        default: "San Francisco · 37.7749°N, 122.4194°W"
+    showTop:
+        type: toggle
+        label: Show back-to-top link
+        default: "1"

@@ -1,0 +1,46 @@
+# The visual editor's contract for sections/about-intro.blade.php.
+title: About intro
+description: The story beside the portrait, with a three-stat fact strip
+fields:
+    portrait:
+        type: image
+        label: Portrait
+        default: "https://assets.ui.sh/avatars/3.webp?size=640"
+    portraitAlt:
+        type: text
+        label: Portrait alt text
+        default: "Portrait of Kai Sato"
+    body1:
+        type: textarea
+        label: First paragraph
+        rows: 5
+        default: "I started as a designer who could code a little, became an engineer who could design a little, and eventually stopped believing the two were different jobs. The seam between them — motion, states, feel, the thousand decisions no mockup can hold — is where I have spent my whole career."
+    body2:
+        type: textarea
+        label: Second paragraph
+        rows: 4
+        default: "These days I lead design engineering at Northwind, ship open source on the side, and write essays about the craft. The through-line is the same everywhere: software should feel like someone cared, because someone did."
+    factValue1:
+        type: text
+        label: Stat 1 value
+        default: "10+"
+    factLabel1:
+        type: text
+        label: Stat 1 label
+        default: "Years shipping"
+    factValue2:
+        type: text
+        label: Stat 2 value
+        default: "38"
+    factLabel2:
+        type: text
+        label: Stat 2 label
+        default: "Products launched"
+    factValue3:
+        type: text
+        label: Stat 3 value
+        default: "6.2k"
+    factLabel3:
+        type: text
+        label: Stat 3 label
+        default: "GitHub stars"
