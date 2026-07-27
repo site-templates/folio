@@ -10,15 +10,15 @@
 -->
 <section class="relative pt-40 pb-6 sm:pt-44">
     <div class="mx-auto w-full max-w-6xl px-6">
-        <p class="crosshair inline-block font-mono text-[11px] tracking-widest text-faint uppercase" data-reveal>{{ $label }}</p>
+        <p class="crosshair inline-block font-mono text-[0.6875rem] tracking-widest text-faint uppercase" data-reveal>{{ $label }}</p>
 
-        <h1 class="mt-8 max-w-[24ch] text-[2.4rem] leading-[1.08] font-display font-medium tracking-[-0.02em] text-balance sm:text-[3.5rem]" data-reveal>
+        <h1 class="mt-8 max-w-[24ch] text-4xl font-display font-medium tracking-tight text-balance sm:text-6xl" data-reveal>
             {{ $headingInk }}
             <span class="text-muted">{{ $headingMuted }}</span>
         </h1>
 
         @if ($body)
-        <p class="reveal-1 mt-6 max-w-[52ch] text-lg/7 text-pretty text-muted" data-reveal>{{ $body }}</p>
+        <p class="reveal-1 mt-6 max-w-[48ch] text-lg/7 text-pretty text-muted" data-reveal>{{ $body }}</p>
         @endif
     </div>
 </section>

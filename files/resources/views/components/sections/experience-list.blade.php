@@ -14,11 +14,11 @@
     <div class="mx-auto w-full max-w-6xl px-6">
 
         @if ($label)
-        <p class="crosshair inline-block font-mono text-[11px] tracking-widest text-faint uppercase" data-reveal>{{ $label }}</p>
+        <p class="crosshair inline-block font-mono text-[0.6875rem] tracking-widest text-faint uppercase" data-reveal>{{ $label }}</p>
         @endif
 
         @if ($heading)
-        <h2 class="mt-8 text-3xl font-display font-medium tracking-[-0.02em] sm:text-4xl" data-reveal>{{ $heading }}</h2>
+        <h2 class="mt-8 text-3xl font-display font-medium tracking-tight sm:text-4xl" data-reveal>{{ $heading }}</h2>
         @endif
 
         <div class="mt-10 border-t border-line" data-reveal>
@@ -27,7 +27,7 @@
                 <div class="flex items-baseline gap-2.5">
                     <span class="font-mono text-xs text-faint">{{ $item->dates }}</span>
                     @if ($item->current)
-                    <span class="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest text-ink uppercase">
+                    <span class="inline-flex items-center gap-1.5 font-mono text-[0.625rem] tracking-widest text-ink uppercase">
                         <span class="size-1.5 rounded-full bg-ink"></span>
                         {{ $currentText }}
                     </span>
@@ -39,7 +39,7 @@
                         <span class="text-sm text-muted">{{ $item->company }} · {{ $item->location }}</span>
                     </p>
                     @if ($variant == 'full')
-                    <p class="mt-2 max-w-[68ch] text-sm/6 text-muted">{{ $item->description }}</p>
+                    <p class="mt-2 max-w-[68ch] text-base/7 text-muted sm:text-sm/6">{{ $item->description }}</p>
                     @endif
                 </div>
             </div>

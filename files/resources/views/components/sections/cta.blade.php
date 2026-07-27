@@ -16,23 +16,23 @@
     <div class="dot-grid pointer-events-none absolute inset-x-0 bottom-0 h-[24rem] rotate-180"></div>
 
     <div class="relative mx-auto w-full max-w-6xl px-6 text-center">
-        <p class="crosshair inline-block font-mono text-[11px] tracking-widest text-faint uppercase" data-reveal>{{ $label }}</p>
+        <p class="crosshair inline-block font-mono text-[0.6875rem] tracking-widest text-faint uppercase" data-reveal>{{ $label }}</p>
 
-        <h2 class="mx-auto mt-8 max-w-[22ch] text-4xl leading-[1.08] font-display font-medium tracking-[-0.02em] text-balance sm:text-6xl" data-reveal>
+        <h2 class="mx-auto mt-8 max-w-[24ch] text-4xl font-display font-medium tracking-tight text-balance sm:text-6xl" data-reveal>
             {{ $headingInk }}
             <span class="text-muted">{{ $headingMuted }}</span>
         </h2>
 
-        <p class="reveal-1 mx-auto mt-6 max-w-[52ch] text-lg/7 text-pretty text-muted" data-reveal>{{ $body }}</p>
+        <p class="reveal-1 mx-auto mt-6 max-w-[48ch] text-lg/7 text-pretty text-muted" data-reveal>{{ $body }}</p>
 
         <div class="reveal-2 mt-10 flex flex-col items-center gap-4" data-reveal>
-            <a href="{{ $buttonLink }}" class="inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-3.5 font-mono text-[15px] font-medium text-accent-ink transition-opacity duration-200 hover:opacity-85">
+            <a href="{{ $buttonLink }}" class="inline-flex items-center gap-2.5 rounded-full bg-accent py-3.5 pr-3.5 pl-7 font-mono text-[0.9375rem] font-medium text-accent-ink hover:opacity-85">
                 {{ $buttonText }}
                 <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
                     <path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/>
                 </svg>
             </a>
-            <p class="font-mono text-[11px] tracking-widest text-faint uppercase">{{ $note }}</p>
+            <p class="font-mono text-[0.6875rem] tracking-widest text-faint uppercase">{{ $note }}</p>
         </div>
     </div>
 </section>

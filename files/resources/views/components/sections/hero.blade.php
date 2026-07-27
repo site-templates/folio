@@ -26,7 +26,7 @@
     <div class="relative mx-auto w-full max-w-6xl px-6">
 
         <div class="flex items-center gap-4" data-hero-fade>
-            <img src="{{ $avatar }}" alt="{{ $avatarAlt }}" class="size-11 rounded-full border border-line object-cover" loading="lazy">
+            <img src="{{ $avatar }}" alt="{{ $avatarAlt }}" class="size-11 rounded-full object-cover outline-1 -outline-offset-1 outline-ink/10" loading="lazy">
             @if ($showStatus)
             <p class="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 font-mono text-xs text-muted">
                 <span class="relative flex size-1.5">
@@ -38,7 +38,7 @@
             @endif
         </div>
 
-        <h1 class="mt-10 max-w-[22ch] text-[2.6rem] leading-[1.06] font-display font-medium tracking-[-0.025em] text-balance sm:text-[4.25rem] lg:text-[4.75rem]">
+        <h1 class="mt-10 max-w-[20ch] text-5xl font-display font-medium tracking-tight text-balance sm:text-6xl lg:text-7xl">
             <span data-hero-clip class="block"><span data-hero-line class="block">{{ $headingInk }}</span></span>
             <span data-hero-clip class="block"><span data-hero-line class="block text-muted">{{ $headingMuted }}</span></span>
         </h1>
@@ -48,24 +48,24 @@
 
             <dl class="w-full max-w-xs shrink-0 text-sm" data-hero-fade>
                 <div class="flex items-baseline justify-between gap-6 border-b border-line py-2.5">
-                    <dt class="font-mono text-[11px] tracking-widest text-faint uppercase">{{ $labelLocation }}</dt>
+                    <dt class="font-mono text-[0.6875rem] tracking-widest text-faint uppercase">{{ $labelLocation }}</dt>
                     <dd class="text-ink">{{ $valueLocation }}</dd>
                 </div>
                 <div class="flex items-baseline justify-between gap-6 border-b border-line py-2.5">
-                    <dt class="font-mono text-[11px] tracking-widest text-faint uppercase">{{ $labelCurrently }}</dt>
+                    <dt class="font-mono text-[0.6875rem] tracking-widest text-faint uppercase">{{ $labelCurrently }}</dt>
                     <dd class="text-right text-ink">{{ $valueCurrently }}</dd>
                 </div>
                 <div class="flex items-baseline justify-between gap-6 py-2.5">
-                    <dt class="font-mono text-[11px] tracking-widest text-faint uppercase">{{ $labelEmail }}</dt>
+                    <dt class="font-mono text-[0.6875rem] tracking-widest text-faint uppercase">{{ $labelEmail }}</dt>
                     <dd><a href="mailto:{{ $valueEmail }}" class="link-draw text-ink">{{ $valueEmail }}</a></dd>
                 </div>
             </dl>
         </div>
 
         @if ($showScrollHint)
-        <p class="mt-16 inline-flex items-center gap-2 font-mono text-[11px] tracking-widest text-faint uppercase" data-hero-fade>
+        <p class="mt-16 inline-flex items-center gap-2 font-mono text-[0.6875rem] tracking-widest text-faint uppercase" data-hero-fade>
             {{ $scrollHint }}
-            <svg viewBox="0 0 16 16" class="size-3 animate-bounce fill-current" aria-hidden="true">
+            <svg viewBox="0 0 16 16" class="size-4 animate-bounce fill-current" aria-hidden="true">
                 <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd"/>
             </svg>
         </p>

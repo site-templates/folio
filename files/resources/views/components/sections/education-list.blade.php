@@ -11,11 +11,11 @@
     <div class="mx-auto w-full max-w-6xl px-6">
 
         @if ($label)
-        <p class="crosshair inline-block font-mono text-[11px] tracking-widest text-faint uppercase" data-reveal>{{ $label }}</p>
+        <p class="crosshair inline-block font-mono text-[0.6875rem] tracking-widest text-faint uppercase" data-reveal>{{ $label }}</p>
         @endif
 
         @if ($heading)
-        <h2 class="text-2xl font-display font-medium tracking-[-0.02em] sm:text-3xl" data-reveal>{{ $heading }}</h2>
+        <h2 class="text-2xl font-display font-medium tracking-tight sm:text-3xl" data-reveal>{{ $heading }}</h2>
         @endif
 
         <div class="mt-8 border-t border-line" data-reveal>
@@ -27,7 +27,7 @@
                         <span class="text-lg font-medium tracking-tight text-ink">{{ $item->degree }}</span>
                         <span class="text-sm text-muted">{{ $item->school }}</span>
                     </p>
-                    <p class="mt-2 max-w-[68ch] text-sm/6 text-muted">{{ $item->note }}</p>
+                    <p class="mt-2 max-w-[68ch] text-base/7 text-muted sm:text-sm/6">{{ $item->note }}</p>
                 </div>
             </div>
             @endforeach

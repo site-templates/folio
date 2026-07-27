@@ -24,22 +24,22 @@
 
                 <dl class="reveal-2 mt-12 grid grid-cols-3 gap-6 border-t border-line pt-8" data-reveal>
                     <div>
-                        <dd class="text-3xl font-display font-medium tracking-tight text-ink">{{ $factValue1 }}</dd>
-                        <dt class="mt-1.5 font-mono text-[11px] tracking-widest text-faint uppercase">{{ $factLabel1 }}</dt>
+                        <dd class="text-3xl font-display font-medium tracking-tight text-ink tabular-nums">{{ $factValue1 }}</dd>
+                        <dt class="mt-1.5 font-mono text-[0.6875rem] tracking-widest text-faint uppercase">{{ $factLabel1 }}</dt>
                     </div>
                     <div>
-                        <dd class="text-3xl font-display font-medium tracking-tight text-ink">{{ $factValue2 }}</dd>
-                        <dt class="mt-1.5 font-mono text-[11px] tracking-widest text-faint uppercase">{{ $factLabel2 }}</dt>
+                        <dd class="text-3xl font-display font-medium tracking-tight text-ink tabular-nums">{{ $factValue2 }}</dd>
+                        <dt class="mt-1.5 font-mono text-[0.6875rem] tracking-widest text-faint uppercase">{{ $factLabel2 }}</dt>
                     </div>
                     <div>
-                        <dd class="text-3xl font-display font-medium tracking-tight text-ink">{{ $factValue3 }}</dd>
-                        <dt class="mt-1.5 font-mono text-[11px] tracking-widest text-faint uppercase">{{ $factLabel3 }}</dt>
+                        <dd class="text-3xl font-display font-medium tracking-tight text-ink tabular-nums">{{ $factValue3 }}</dd>
+                        <dt class="mt-1.5 font-mono text-[0.6875rem] tracking-widest text-faint uppercase">{{ $factLabel3 }}</dt>
                     </div>
                 </dl>
             </div>
 
             <div class="reveal-1" data-reveal>
-                <div data-parallax class="aspect-[4/5] rounded-2xl border border-line bg-raised">
+                <div data-parallax class="aspect-[4/5] rounded-2xl bg-raised outline-1 -outline-offset-1 outline-ink/10">
                     <div class="parallax-media">
                         <img src="{{ $portrait }}" alt="{{ $portraitAlt }}" class="h-full w-full object-cover" loading="lazy">
                     </div>
