@@ -20,7 +20,7 @@
 <header id="header" class="fixed inset-x-0 top-0 z-50">
 
     <!-- Reading progress — a hairline that only shows once the pill is formed. -->
-    <span data-scroll-progress class="nav-progress pointer-events-none absolute inset-x-0 top-0 block h-px"></span>
+    <span data-scroll-progress class="nav-progress pointer-events-none absolute top-0 left-0 block h-px"></span>
 
     <div data-nav-bar class="nav-bar relative grid items-center">
 

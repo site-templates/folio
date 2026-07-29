@@ -53,7 +53,7 @@
         @endif
 
         <div class="reveal-2 mt-12" data-reveal>
-            <div data-parallax class="aspect-[16/9] rounded-2xl bg-raised outline-1 -outline-offset-1 outline-ink/10">
+            <div data-parallax class="aspect-[16/9] rounded-2xl border border-line bg-raised">
                 <div class="parallax-media">
                     <img src="{{ $project->image }}" alt="{{ $project->imageAlt }}" class="h-full w-full object-cover">
                 </div>

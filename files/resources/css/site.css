@@ -117,14 +117,25 @@ h1, h2, h3, h4,
     opacity: 0;
 }
 
-/* Parallax media: the wrapper clips, GSAP scrubs the image inside. */
+/*
+    Parallax media: the frame clips, GSAP scrubs the image inside it.
+
+    The media is inset by -6% top and bottom rather than sized at 112% tall.
+    These frames take their height from an aspect-ratio, which is not a
+    definite height a percentage can resolve against — the old height: 112%
+    silently collapsed to the frame height, so any scrub exposed a bare strip
+    of card at one edge. Percentage insets resolve against the frame's own
+    box, so the overhang is real: 6% of travel is available at each end.
+*/
 [data-parallax] {
+    position: relative;
     overflow: clip;
 }
 
 [data-parallax] > img,
 [data-parallax] > .parallax-media {
-    height: 112%;
+    position: absolute;
+    inset: -6% 0;
     width: 100%;
     object-fit: cover;
     will-change: transform;
@@ -198,24 +209,28 @@ html:not(.gsap) #header[data-scrolled] {
     --nav-compact-w: 72rem;
 
     /*
-        Two equal fr columns around an auto centre keep the links dead-centre
-        in the pill whatever the brand name weighs. Below md the links are
-        gone, so a matching pair of fr columns would only pad the pill out to
-        the full width — two columns there instead.
+        Content-sized columns with space-between: the free space at rest is
+        split evenly, and once the pill has closed there is none left, so the
+        two gaps around the links are always equal. Equal-fr columns would
+        instead pad the shorter side out and push the button away from the
+        links. A longer brand name simply widens its own column, and the
+        measured pill width grows to take it.
     */
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
     width: calc(var(--nav-rest-w) + (var(--nav-compact-w) - var(--nav-rest-w)) * var(--nav-p));
     max-width: min(72rem, 100%);
     margin-inline: auto;
-    column-gap: calc(1.5rem - 0.5rem * var(--nav-p));
+    column-gap: calc(1.5rem - 0.625rem * var(--nav-p));
     padding-inline: calc(1.5rem - 1rem * var(--nav-p));
     padding-block: calc(1rem - 0.5rem * var(--nav-p));
     will-change: width;
 }
 
+/* The links are gone below md — a third track would strand the button mid-bar. */
 @media (width < 48rem) {
     .nav-bar {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto auto;
     }
 }
 
@@ -322,12 +337,13 @@ html:not(.gsap) #header[data-scrolled] {
     and it only appears once the pill has formed.
 */
 .nav-progress {
-    background: linear-gradient(
-        to right,
-        transparent,
-        color-mix(in oklab, var(--color-ink) 45%, transparent) 45%,
-        var(--color-ink)
-    );
+    /*
+        The header is fixed, so it stops at the scrollbar gutter — a full bar
+        would still sit ~15px shy of the window edge. 100vw counts the gutter,
+        so the line finishes flush with the screen.
+    */
+    width: 100vw;
+    background-color: var(--color-ink);
     transform-origin: left center;
     transform: scaleX(var(--scroll-progress, 0));
     opacity: calc(var(--nav-p) * 1.5 - 0.5);

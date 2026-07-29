@@ -40,7 +40,7 @@
             @foreach ($items as $item)
             @if ($featuredOnly == '' || $item->featured)
             <a href="{{ $item->link }}" class="group block" data-reveal>
-                <div data-parallax class="aspect-[4/3] rounded-2xl bg-raised outline-1 -outline-offset-1 outline-ink/10">
+                <div data-parallax class="aspect-[4/3] rounded-2xl border border-line bg-raised">
                     <div class="parallax-media">
                         <img src="{{ $item->image }}" alt="{{ $item->imageAlt }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy">
                     </div>

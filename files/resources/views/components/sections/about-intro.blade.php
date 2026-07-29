@@ -39,7 +39,7 @@
             </div>
 
             <div class="reveal-1" data-reveal>
-                <div data-parallax class="aspect-[4/5] rounded-2xl bg-raised outline-1 -outline-offset-1 outline-ink/10">
+                <div data-parallax class="aspect-[4/5] rounded-2xl border border-line bg-raised">
                     <div class="parallax-media">
                         <img src="{{ $portrait }}" alt="{{ $portraitAlt }}" class="h-full w-full object-cover" loading="lazy">
                     </div>

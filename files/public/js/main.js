@@ -29,6 +29,14 @@
 
         var held = header.style.getPropertyValue('--nav-p')
 
+        /*
+            Without GSAP, --nav-p is transitioned in CSS — so forcing it to 1
+            here would ease toward the compact state rather than land on it,
+            and we would measure a half-collapsed bar. Pin the transition off
+            for the duration of the probe.
+        */
+        header.style.transition = 'none'
+
         header.style.setProperty('--nav-p', '0')
         navBar.style.width = 'auto'
         var restWidth = navBar.getBoundingClientRect().width
@@ -46,6 +54,10 @@
 
         navBar.style.setProperty('--nav-rest-w', restWidth + 'px')
         navBar.style.setProperty('--nav-compact-w', compactWidth + 'px')
+
+        /* Settle the restored value before the transition is armed again. */
+        void navBar.offsetWidth
+        header.style.transition = ''
     }
 
     function remeasure() {
@@ -127,12 +139,20 @@
     /* Scroll state: the fallback morph trigger, plus the reading progress. */
     function onScroll() {
         var top = window.scrollY || window.pageYOffset || 0
-        var travel = docEl.scrollHeight - window.innerHeight
+        var travel = docEl.scrollHeight - docEl.clientHeight
+        var progress = travel > 0 ? Math.min(1, Math.max(0, top / travel)) : 0
 
-        docEl.style.setProperty(
-            '--scroll-progress',
-            travel > 0 ? Math.min(1, Math.max(0, top / travel)).toFixed(4) : '0'
-        )
+        /*
+            Under browser zoom or on a fractional-DPR display these two
+            heights round against each other, so the last couple of pixels of
+            scroll never arrive and the bar stops a sliver short of full.
+            Anything within 2px of the end counts as the end.
+        */
+        if (travel > 0 && travel - top <= 2) {
+            progress = 1
+        }
+
+        docEl.style.setProperty('--scroll-progress', progress.toFixed(4))
 
         if (!header) return
         if (top > 8) header.setAttribute('data-scrolled', '')
@@ -207,6 +227,10 @@
         The load sequence. The header settles first, its pieces follow, and the
         headline starts rising while they are still arriving — the overlap is
         what makes the page feel like one movement instead of a queue.
+
+        That full entrance only earns its length where there is a hero to
+        accompany it. On the inner pages the header just fades in quickly and
+        gets out of the way of the content.
     */
     var navItems = gsap.utils.toArray('[data-nav-item]')
     var lead = gsap.utils.toArray('[data-hero-lead]')
@@ -215,20 +239,32 @@
 
     var intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
-    if (navBar) {
-        intro.fromTo(navBar,
-            { y: -16, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.9, ease: 'power4.out' },
-            0
-        )
-    }
+    if (lines.length) {
+        if (navBar) {
+            intro.fromTo(navBar,
+                { y: -16, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.9, ease: 'power4.out' },
+                0
+            )
+        }
 
-    if (navItems.length) {
-        intro.fromTo(navItems,
-            { y: -8, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7, stagger: 0.08 },
-            0.12
-        )
+        if (navItems.length) {
+            intro.fromTo(navItems,
+                { y: -8, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.7, stagger: 0.08 },
+                0.12
+            )
+        }
+    } else {
+        gsap.set(navItems, { opacity: 1, y: 0 })
+
+        if (navBar) {
+            intro.fromTo(navBar,
+                { opacity: 0 },
+                { opacity: 1, duration: 0.35, ease: 'power2.out' },
+                0
+            )
+        }
     }
 
     if (lead.length) {
@@ -248,7 +284,7 @@
         intro.fromTo(fades,
             { y: 18, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.95, stagger: 0.09 },
-            0.72
+            lines.length ? 0.72 : 0.15
         )
     }
 
@@ -276,14 +312,14 @@
         )
     }
 
-    /* Imagery drifts inside its clipped frame as it crosses the viewport.
-       The media wrapper is 112% tall, so the safe travel is about 10.7% of
-       its own height — GSAP scrubs it edge to edge. */
+    /* Imagery drifts inside its clipped frame as it crosses the viewport. The
+       media hangs 6% past each end of the frame, which is 5.35% of its own
+       height — so it scrubs edge to edge without ever exposing the frame. */
     gsap.utils.toArray('[data-parallax] > .parallax-media, [data-parallax] > img').forEach(function (media) {
         gsap.fromTo(media,
-            { yPercent: -10.7 },
+            { yPercent: -5.35 },
             {
-                yPercent: 0,
+                yPercent: 5.35,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: media.parentElement,

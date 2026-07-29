@@ -7,7 +7,7 @@
     is decoration for screen readers. CSS animates it (paused on hover, off
     under reduced motion) — fed by the stack list in resources/data/site.json.
 -->
-<section class="relative border-y border-line py-6">
+<section class="relative border-y border-line py-6" data-hero-fade>
     <p class="sr-only">{{ $label }}</p>
     <div class="marquee overflow-hidden">
         <div class="flex w-max">
