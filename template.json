@@ -1,15 +1,15 @@
 {
     "name": "Folio",
     "dialect": "blade",
-    "description": "A developer's portfolio with a two-tone statement hero, GSAP scroll motion, collection-driven case studies, writings, and a data-driven resume.",
+    "description": "A developer's portfolio with a user-card header that collapses into a floating pill on scroll, a two-tone statement hero, GSAP motion, collection-driven case studies, writings, and a data-driven resume.",
     "icon": "🗂️",
     "repo": "https://github.com/site-templates/folio",
     "order": 18,
     "category": "portfolio",
     "theme": "light",
-    "accent": "#1c1917",
+    "accent": "#16150f",
     "themeable": true,
-    "palette": "slate",
+    "palette": "paper",
     "fonts": "geist",
     "appearance": "light",
     "pages": [

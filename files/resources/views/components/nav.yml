@@ -3,12 +3,28 @@
 # they fill. The links repeater stores into site.json's nav_links key via the
 # layout's bound attribute.
 title: Navigation
-description: The fixed top bar — mark, name, links, and the contact button
+description: The floating header — user card, links, and the contact button, which collapse into a pill on scroll
 fields:
     brand:
         type: text
         label: Name
         default: "Kai Sato"
+    avatar:
+        type: image
+        label: Avatar
+        default: "https://assets.ui.sh/avatars/3.webp?size=160"
+    avatarAlt:
+        type: text
+        label: Avatar alt text
+        default: "Portrait of Kai Sato"
+    showStatus:
+        type: toggle
+        label: Show availability
+        default: "1"
+    statusText:
+        type: text
+        label: Availability text
+        default: "Available for work"
     links:
         type: repeater
         label: Navigation links

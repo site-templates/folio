@@ -4,25 +4,25 @@
 :root {
     color-scheme: light;
 
-    --background: #ffffff;
-    --foreground: #0a0a0a;
-    --card: #ffffff;
-    --card-foreground: #0a0a0a;
-    --popover: #ffffff;
-    --popover-foreground: #0a0a0a;
-    --primary: #1c1917;
-    --primary-foreground: #ffffff;
-    --secondary: #f5f5f5;
-    --secondary-foreground: #262626;
-    --muted: #f5f5f5;
-    --muted-foreground: #737373;
-    --accent: #f5f5f5;
-    --accent-foreground: #262626;
+    --background: #f3f2ef;
+    --foreground: #16150f;
+    --card: #faf9f7;
+    --card-foreground: #16150f;
+    --popover: #faf9f7;
+    --popover-foreground: #16150f;
+    --primary: #16150f;
+    --primary-foreground: #f3f2ef;
+    --secondary: #e7e5df;
+    --secondary-foreground: #2b2a23;
+    --muted: #e7e5df;
+    --muted-foreground: #6e6b60;
+    --accent: #e7e5df;
+    --accent-foreground: #2b2a23;
     --destructive: #e7000b;
     --destructive-foreground: #ffffff;
-    --border: #e5e5e5;
-    --input: #e5e5e5;
-    --ring: #a1a1a1;
+    --border: #d9d6ce;
+    --input: #d9d6ce;
+    --ring: #6e6b60;
 
     --radius-small: 0.375rem;
     --radius-medium: 0.5rem;
@@ -32,25 +32,25 @@
 .dark {
     color-scheme: dark;
 
-    --background: #0a0a0a;
-    --foreground: #ffffff;
-    --card: #171717;
-    --card-foreground: #ffffff;
-    --popover: #171717;
-    --popover-foreground: #ffffff;
-    --primary: #ffffff;
-    --primary-foreground: #1c1917;
-    --secondary: #262626;
-    --secondary-foreground: #f5f5f5;
-    --muted: #262626;
-    --muted-foreground: #a1a1a1;
-    --accent: #262626;
-    --accent-foreground: #f5f5f5;
+    --background: #15140f;
+    --foreground: #f2f0e9;
+    --card: #1d1c17;
+    --card-foreground: #f2f0e9;
+    --popover: #1d1c17;
+    --popover-foreground: #f2f0e9;
+    --primary: #f2f0e9;
+    --primary-foreground: #15140f;
+    --secondary: #27251f;
+    --secondary-foreground: #edeae0;
+    --muted: #27251f;
+    --muted-foreground: #aaa69a;
+    --accent: #27251f;
+    --accent-foreground: #edeae0;
     --destructive: #ff6467;
     --destructive-foreground: #ffffff;
-    --border: rgba(255, 255, 255, 0.1);
-    --input: rgba(255, 255, 255, 0.15);
-    --ring: #737373;
+    --border: #34322a;
+    --input: #34322a;
+    --ring: #aaa69a;
 }
 
 @theme inline {

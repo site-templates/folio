@@ -1,24 +1,16 @@
 # The visual editor's contract for sections/hero.blade.php: each field maps
 # to a prop in the component's props block. Field names are camelCase.
 title: Hero
-description: The opening statement — availability chip, two-tone display headline, intro copy, and the metadata rail
+description: The opening statement — ruled eyebrow, two-tone display headline, intro copy, and the metadata rail
 fields:
-    showStatus:
+    showEyebrow:
         type: toggle
-        label: Show availability chip
+        label: Show eyebrow
         default: "1"
-    statusText:
+    eyebrow:
         type: text
-        label: Availability text
-        default: "Available for select projects"
-    avatar:
-        type: image
-        label: Avatar
-        default: "https://assets.ui.sh/avatars/3.webp?size=160"
-    avatarAlt:
-        type: text
-        label: Avatar alt text
-        default: "Portrait of Kai Sato"
+        label: Eyebrow text
+        default: "Design Engineer"
     headingInk:
         type: text
         label: Headline (first line)
@@ -26,7 +18,7 @@ fields:
     headingMuted:
         type: text
         label: Headline (second line, muted)
-        default: "with unreasonable attention to detail."
+        default: "with unreasonable care."
     body:
         type: textarea
         label: Intro copy

@@ -1,10 +1,8 @@
 @props([
-    'showStatus' => '1',
-    'statusText' => 'Available for select projects',
-    'avatar' => 'https://assets.ui.sh/avatars/3.webp?size=160',
-    'avatarAlt' => 'Portrait of Kai Sato',
+    'showEyebrow' => '1',
+    'eyebrow' => 'Design Engineer',
     'headingInk' => 'I design and build software',
-    'headingMuted' => 'with unreasonable attention to detail.',
+    'headingMuted' => 'with unreasonable care.',
     'body' => 'Design engineer in San Francisco. For the last decade I have lived in the space between the design file and the codebase — shipping products, systems, and the occasional beautiful dead end.',
     'labelLocation' => 'Location',
     'valueLocation' => 'San Francisco, CA',
@@ -16,31 +14,27 @@
     'scrollHint' => 'scroll',
 ])
 <!--
-    The opening statement: an availability chip, a two-tone display headline
+    The opening statement: a ruled mono eyebrow, a two-tone display headline
     that rises line by line on load, then the intro copy beside a metadata
-    rail. The dotted engineering grid sits behind everything.
+    rail. The portrait and availability badge live in the header's user card
+    now, so the statement starts on the headline. The dotted engineering grid
+    sits behind everything.
 -->
-<section id="hero" class="relative overflow-hidden pt-40 pb-16 sm:pt-48 sm:pb-20">
+<section id="hero" class="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20">
     <div class="dot-grid pointer-events-none absolute inset-x-0 top-0 h-[36rem]"></div>
 
     <div class="relative mx-auto w-full max-w-6xl px-6">
 
-        <div class="flex items-center gap-4" data-hero-fade>
-            <img src="{{ $avatar }}" alt="{{ $avatarAlt }}" class="size-11 rounded-full object-cover outline-1 -outline-offset-1 outline-ink/10" loading="lazy">
-            @if ($showStatus)
-            <p class="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 font-mono text-xs text-muted">
-                <span class="relative flex size-1.5">
-                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-40"></span>
-                    <span class="relative inline-flex size-1.5 rounded-full bg-ink/80"></span>
-                </span>
-                {{ $statusText }}
-            </p>
-            @endif
-        </div>
+        @if ($showEyebrow)
+        <p class="inline-flex items-center gap-3 font-mono text-[0.6875rem] tracking-[0.2em] text-faint uppercase" data-hero-lead>
+            <span class="block h-px w-10 bg-ink/20"></span>
+            {{ $eyebrow }}
+        </p>
+        @endif
 
-        <h1 class="mt-10 max-w-[20ch] text-5xl font-display font-medium tracking-tight text-balance sm:text-6xl lg:text-7xl">
-            <span data-hero-clip class="block"><span data-hero-line class="block">{{ $headingInk }}</span></span>
-            <span data-hero-clip class="block"><span data-hero-line class="block text-muted">{{ $headingMuted }}</span></span>
+        <h1 class="mt-8 max-w-[26ch] text-5xl font-display font-medium tracking-tight sm:text-6xl lg:text-7xl">
+            <span data-hero-clip class="block"><span data-hero-line class="block pb-[0.08em]">{{ $headingInk }}</span></span>
+            <span data-hero-clip class="block"><span data-hero-line class="block pb-[0.08em] text-muted">{{ $headingMuted }}</span></span>
         </h1>
 
         <div class="mt-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-10 sm:mt-16">

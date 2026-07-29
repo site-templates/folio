@@ -27,6 +27,9 @@
     --color-accent-ink: var(--primary-foreground);
     --color-accent-soft: color-mix(in oklab, var(--primary) 8%, var(--background));
 
+    /* The one non-neutral in the system: the "available" signal in the header */
+    --color-live: oklch(0.72 0.15 155);
+
     /* One easing family for everything interactive */
     --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
     --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
@@ -107,7 +110,10 @@ h1, h2, h3, h4,
 }
 
 .gsap [data-hero-line],
-.gsap [data-hero-fade] {
+.gsap [data-hero-lead],
+.gsap [data-hero-fade],
+.gsap [data-nav-bar],
+.gsap [data-nav-item] {
     opacity: 0;
 }
 
@@ -127,9 +133,16 @@ h1, h2, h3, h4,
 @media (prefers-reduced-motion: reduce) {
     .js [data-reveal],
     .gsap [data-hero-line],
-    .gsap [data-hero-fade] {
+    .gsap [data-hero-lead],
+    .gsap [data-hero-fade],
+    .gsap [data-nav-bar],
+    .gsap [data-nav-item] {
         opacity: 1;
         translate: 0 0;
+        transition: none;
+    }
+
+    #header {
         transition: none;
     }
 
@@ -144,23 +157,180 @@ h1, h2, h3, h4,
 }
 
 /*
-    The header: transparent and roomy at the top; once content scrolls
-    underneath, main.js sets data-scrolled and it tightens into a hairlined
-    glass bar.
+    ===========================================================================
+    The header morph.
+
+    Everything below interpolates against one registered number, --nav-p:
+    0 is the resting bar (full measure, no background, no bottom edge) and 1
+    is the floating pill (content width, glass, shadow). main.js scrubs it
+    with GSAP ScrollTrigger over the first stretch of scroll; without GSAP the
+    @property registration lets it transition on the data-scrolled toggle
+    instead, so the movement is smooth either way.
+    ===========================================================================
 */
-#header {
-    transition:
-        background-color 0.4s ease,
-        border-color 0.4s ease,
-        backdrop-filter 0.4s ease;
-    border-bottom: 1px solid transparent;
+@property --nav-p {
+    syntax: '<number>';
+    initial-value: 0;
+    inherits: true;
 }
 
-#header[data-scrolled] {
-    background-color: color-mix(in oklab, var(--color-canvas) 78%, transparent);
-    border-bottom-color: var(--color-line);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+#header {
+    --nav-p: 0;
+    padding-block-start: calc(0.625rem + 0.375rem * var(--nav-p));
+}
+
+/* The CSS-only path: no GSAP (or reduced motion) still gets the morph. */
+html:not(.gsap) #header {
+    transition: --nav-p 0.6s var(--ease-spring);
+}
+
+html:not(.gsap) #header[data-scrolled] {
+    --nav-p: 1;
+}
+
+/*
+    The bar. Its width is a straight interpolation between the two widths
+    main.js measures — the resting measure and the pill's content width — so
+    the collapse tracks whatever brand name and links the site actually has.
+*/
+.nav-bar {
+    --nav-rest-w: 72rem;
+    --nav-compact-w: 72rem;
+
+    /*
+        Two equal fr columns around an auto centre keep the links dead-centre
+        in the pill whatever the brand name weighs. Below md the links are
+        gone, so a matching pair of fr columns would only pad the pill out to
+        the full width — two columns there instead.
+    */
+    grid-template-columns: 1fr auto 1fr;
+    width: calc(var(--nav-rest-w) + (var(--nav-compact-w) - var(--nav-rest-w)) * var(--nav-p));
+    max-width: min(72rem, 100%);
+    margin-inline: auto;
+    column-gap: calc(1.5rem - 0.5rem * var(--nav-p));
+    padding-inline: calc(1.5rem - 1rem * var(--nav-p));
+    padding-block: calc(1rem - 0.5rem * var(--nav-p));
+    will-change: width;
+}
+
+@media (width < 48rem) {
+    .nav-bar {
+        grid-template-columns: 1fr auto;
+    }
+}
+
+/*
+    The pill: it inherits the bar's animated box, so it never needs its own.
+    A raised warm-grey surface rather than a floating shadow — it reads as a
+    slab set into the page instead of a card hovering over it.
+*/
+.nav-glass {
+    opacity: var(--nav-p);
+    background-color: color-mix(in oklab, var(--color-raised) 94%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--color-ink) 5%, transparent),
+        0 1px 2px -1px color-mix(in oklab, var(--color-ink) 10%, transparent);
+}
+
+/*
+    The user card: avatar, name, and the availability line under it. The two
+    text lines are set tight so the pair reads as one optically centred block
+    against the avatar rather than two stacked rows.
+*/
+.nav-card {
+    column-gap: calc(0.5rem - 0.0625rem * var(--nav-p));
+}
+
+.nav-avatar {
+    width: calc(2.25rem - 0.375rem * var(--nav-p));
+    height: calc(2.25rem - 0.375rem * var(--nav-p));
+}
+
+.nav-name {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+}
+
+/*
+    The availability line collapses as you scroll — and its status dot fades
+    onto the avatar at the same moment, so the signal never disappears.
+*/
+.nav-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.3125rem;
+    overflow: clip;
+    height: calc(0.9375rem * (1 - var(--nav-p)));
+    line-height: 1;
+    opacity: calc(1 - var(--nav-p) * 2.2);
+}
+
+.nav-dot {
+    width: calc(0.4375rem + 0.125rem * var(--nav-p));
+    height: calc(0.4375rem + 0.125rem * var(--nav-p));
+    opacity: calc(var(--nav-p) * 1.8 - 0.5);
+    box-shadow: 0 0 0 1.5px var(--color-canvas);
+}
+
+/* The sliding indicator behind the links — hover, and the current page. */
+.nav-link {
+    transition: color 0.25s var(--ease-out-quart);
+}
+
+.nav-link:hover,
+.nav-link[data-active] {
+    color: var(--color-ink);
+}
+
+/* An ink wash, not a fixed grey — it has to read on the canvas AND on the pill. */
+.nav-indicator {
+    width: 0;
+    opacity: 0;
+    background-color: color-mix(in oklab, var(--color-ink) 7%, transparent);
+    transition: opacity 0.3s var(--ease-out-quart);
+}
+
+.nav-cta {
+    font-size: 0.875rem;
+    padding-block: calc(0.5rem - 0.0625rem * var(--nav-p));
+    padding-inline: calc(1rem - 0.125rem * var(--nav-p)) calc(0.875rem - 0.125rem * var(--nav-p));
+    transition: opacity 0.25s var(--ease-out-quart);
+}
+
+.nav-cta:hover {
+    opacity: 0.88;
+}
+
+.nav-cta-arrow {
+    transition: translate 0.35s var(--ease-spring);
+}
+
+.nav-cta:hover .nav-cta-arrow {
+    translate: 2px 0;
+}
+
+.nav-menu {
+    width: calc(2.25rem - 0.125rem * var(--nav-p));
+    height: calc(2.25rem - 0.125rem * var(--nav-p));
+}
+
+/*
+    Reading progress. A gradient rather than a solid rule, so it reads as a
+    sweep under the floating pill instead of a line ruled across the page —
+    and it only appears once the pill has formed.
+*/
+.nav-progress {
+    background: linear-gradient(
+        to right,
+        transparent,
+        color-mix(in oklab, var(--color-ink) 45%, transparent) 45%,
+        var(--color-ink)
+    );
+    transform-origin: left center;
+    transform: scaleX(var(--scroll-progress, 0));
+    opacity: calc(var(--nav-p) * 1.5 - 0.5);
 }
 
 /* The mobile menu panel — slides down under the header as a glass sheet. */
@@ -172,6 +342,10 @@ h1, h2, h3, h4,
         opacity 0.28s var(--ease-out-quart),
         translate 0.28s var(--ease-out-quart),
         visibility 0s linear 0.28s;
+}
+
+.mobile-sheet {
+    box-shadow: 0 8px 20px -14px color-mix(in oklab, var(--color-ink) 40%, transparent);
 }
 
 .menu-open [data-mobile-panel] {
@@ -428,6 +602,7 @@ kbd.key {
 
     .js [data-reveal],
     .gsap [data-hero-line],
+    .gsap [data-hero-lead],
     .gsap [data-hero-fade] {
         opacity: 1 !important;
         translate: 0 0 !important;

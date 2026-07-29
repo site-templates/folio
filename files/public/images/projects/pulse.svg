@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMid slice">
-    <rect width="1600" height="1200" fill="#f4f4f4"/>
-    <g stroke="#e4e4e7" stroke-width="2">
+    <rect width="1600" height="1200" fill="#f3f2ee"/>
+    <g stroke="#e5e2da" stroke-width="2">
         <line x1="200" y1="240" x2="200" y2="960"/>
         <line x1="500" y1="240" x2="500" y2="960"/>
         <line x1="800" y1="240" x2="800" y2="960"/>
@@ -11,14 +11,14 @@
         <line x1="200" y1="760" x2="1400" y2="760"/>
         <line x1="200" y1="960" x2="1400" y2="960"/>
     </g>
-    <path d="M200 860 C320 840 380 700 500 690 C620 680 660 760 800 730 C940 700 980 500 1100 470 C1220 440 1320 380 1400 340 L1400 960 L200 960 Z" fill="#17171a" opacity="0.06"/>
-    <path d="M200 860 C320 840 380 700 500 690 C620 680 660 760 800 730 C940 700 980 500 1100 470 C1220 440 1320 380 1400 340" fill="none" stroke="#17171a" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="1100" cy="470" r="16" fill="#f4f4f4" stroke="#17171a" stroke-width="7"/>
-    <rect x="1010" y="330" width="270" height="86" rx="14" fill="#17171a"/>
+    <path d="M200 860 C320 840 380 700 500 690 C620 680 660 760 800 730 C940 700 980 500 1100 470 C1220 440 1320 380 1400 340 L1400 960 L200 960 Z" fill="#17160f" opacity="0.06"/>
+    <path d="M200 860 C320 840 380 700 500 690 C620 680 660 760 800 730 C940 700 980 500 1100 470 C1220 440 1320 380 1400 340" fill="none" stroke="#17160f" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="1100" cy="470" r="16" fill="#f3f2ee" stroke="#17160f" stroke-width="7"/>
+    <rect x="1010" y="330" width="270" height="86" rx="14" fill="#17160f"/>
     <circle cx="1058" cy="373" r="9" fill="#8ee99a"/>
-    <rect x="1090" y="356" width="150" height="12" rx="6" fill="#f4f4f4" opacity="0.9"/>
-    <rect x="1090" y="382" width="98" height="10" rx="5" fill="#f4f4f4" opacity="0.45"/>
-    <g fill="#9f9fa8">
+    <rect x="1090" y="356" width="150" height="12" rx="6" fill="#f3f2ee" opacity="0.9"/>
+    <rect x="1090" y="382" width="98" height="10" rx="5" fill="#f3f2ee" opacity="0.45"/>
+    <g fill="#a4a096">
         <rect x="200" y="1000" width="72" height="10" rx="5"/>
         <rect x="470" y="1000" width="72" height="10" rx="5"/>
         <rect x="770" y="1000" width="72" height="10" rx="5"/>
