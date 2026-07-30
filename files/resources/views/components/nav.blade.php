@@ -30,19 +30,19 @@
         <!-- The user card: avatar, name, and the availability line beneath it. -->
         <a href="/" data-nav-item aria-label="Homepage" class="nav-card relative flex min-w-0 items-center">
             <span class="nav-avatar relative block shrink-0">
-                <img src="{{ $avatar }}" alt="{{ $avatarAlt }}" class="size-full rounded-full object-cover outline-1 -outline-offset-1 outline-ink/10">
+                <img src="{{ $avatar }}" alt="{{ $avatarAlt }}" class="size-full rounded-full object-cover">
                 @if ($showStatus)
                 <!-- The status dot fades onto the avatar exactly as the line below collapses. -->
-                <span class="nav-dot absolute right-0 bottom-0 flex items-center justify-center rounded-full bg-canvas">
+                <span class="nav-dot absolute right-0 bottom-0 flex items-center justify-center rounded-full">
                     <span class="size-1.5 rounded-full bg-live"></span>
                 </span>
                 @endif
             </span>
 
             <span class="min-w-0">
-                <span class="nav-name block truncate font-semibold tracking-tight text-ink">{{ $brand }}</span>
+                <span class="nav-name block truncate font-semibold tracking-tight">{{ $brand }}</span>
                 @if ($showStatus)
-                <span data-nav-badge class="nav-badge font-mono text-[0.625rem] whitespace-nowrap text-muted">
+                <span data-nav-badge class="nav-badge font-mono text-[0.625rem] whitespace-nowrap">
                     <span class="relative flex size-1.5 shrink-0">
                         <span class="absolute inline-flex size-full animate-ping rounded-full bg-live opacity-70"></span>
                         <span class="relative inline-flex size-1.5 rounded-full bg-live"></span>
@@ -57,13 +57,13 @@
         <nav aria-label="Main" data-nav-item data-nav-links class="relative flex items-center gap-0.5 max-md:hidden">
             <span data-nav-indicator class="nav-indicator pointer-events-none absolute inset-y-0 left-0 rounded-full"></span>
             @foreach ($links as $link)
-            <a href="{{ $link->url }}" data-nav-link class="nav-link relative rounded-full px-3.5 py-1.5 text-sm text-muted">{{ $link->text }}</a>
+            <a href="{{ $link->url }}" data-nav-link class="nav-link relative rounded-full px-3.5 py-1.5 text-sm">{{ $link->text }}</a>
             @endforeach
         </nav>
 
         <div data-nav-item class="flex items-center justify-end gap-2">
             @if ($showCta)
-            <a href="{{ $ctaLink }}" class="nav-cta inline-flex items-center gap-1.5 rounded-full bg-accent font-medium text-accent-ink max-md:hidden">
+            <a href="{{ $ctaLink }}" class="nav-cta inline-flex items-center gap-1.5 rounded-full font-medium max-md:hidden">
                 {{ $ctaText }}
                 <svg viewBox="0 0 16 16" class="nav-cta-arrow size-3.5 fill-current" aria-hidden="true">
                     <path fill-rule="evenodd" d="M5.22 3.47a.75.75 0 0 1 1.06 0l4 4a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 0 1-1.06-1.06L8.69 8 5.22 4.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
@@ -72,7 +72,7 @@
             @endif
 
             <!-- The mobile menu button — main.js toggles .menu-open on the html element. -->
-            <button type="button" data-menu-button aria-label="Toggle menu" aria-expanded="false" class="nav-menu flex items-center justify-center rounded-full border border-line text-ink md:hidden">
+            <button type="button" data-menu-button aria-label="Toggle menu" aria-expanded="false" class="nav-menu flex items-center justify-center rounded-full border md:hidden">
                 <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
                     <path d="M2 4.75A.75.75 0 0 1 2.75 4h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 3.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"/>
                 </svg>

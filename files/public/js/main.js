@@ -38,6 +38,22 @@
         header.style.transition = 'none'
 
         header.style.setProperty('--nav-p', '0')
+
+        /*
+            The availability line's natural width, so CSS can close it to zero
+            as the pill shuts. It stretches to its parent, so its own box is no
+            guide — max-content is.
+        */
+        var badge = navBar.querySelector('[data-nav-badge]')
+
+        if (badge) {
+            badge.style.maxWidth = 'none'
+            badge.style.width = 'max-content'
+            navBar.style.setProperty('--nav-badge-w', badge.getBoundingClientRect().width + 'px')
+            badge.style.width = ''
+            badge.style.maxWidth = ''
+        }
+
         navBar.style.width = 'auto'
         var restWidth = navBar.getBoundingClientRect().width
 
@@ -228,9 +244,9 @@
         headline starts rising while they are still arriving — the overlap is
         what makes the page feel like one movement instead of a queue.
 
-        That full entrance only earns its length where there is a hero to
-        accompany it. On the inner pages the header just fades in quickly and
-        gets out of the way of the content.
+        That entrance only earns its length where there is a hero to accompany
+        it. On the inner pages the header is simply there from the first paint
+        — no fade, no slide — and the content's own reveals carry the page.
     */
     var navItems = gsap.utils.toArray('[data-nav-item]')
     var lead = gsap.utils.toArray('[data-hero-lead]')
@@ -256,15 +272,14 @@
             )
         }
     } else {
-        gsap.set(navItems, { opacity: 1, y: 0 })
+        var shown = navItems.slice()
 
         if (navBar) {
-            intro.fromTo(navBar,
-                { opacity: 0 },
-                { opacity: 1, duration: 0.35, ease: 'power2.out' },
-                0
-            )
+            shown.push(navBar)
         }
+
+        /* Opacity only — nothing here is ever moved, so leave transform alone. */
+        gsap.set(shown, { opacity: 1 })
     }
 
     if (lead.length) {

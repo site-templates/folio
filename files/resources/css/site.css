@@ -221,10 +221,27 @@ html:not(.gsap) #header[data-scrolled] {
     width: calc(var(--nav-rest-w) + (var(--nav-compact-w) - var(--nav-rest-w)) * var(--nav-p));
     max-width: min(72rem, 100%);
     margin-inline: auto;
-    column-gap: calc(1.5rem - 0.625rem * var(--nav-p));
+    column-gap: calc(1.5rem - 0.875rem * var(--nav-p));
     padding-inline: calc(1.5rem - 1rem * var(--nav-p));
     padding-block: calc(1rem - 0.5rem * var(--nav-p));
     will-change: width;
+
+    /*
+        The pill's colour scheme. At rest the bar borrows the page's own ink;
+        closed, it is a dark slab and every piece inverts onto it. Both ends
+        come from the theme tokens, so a re-themed site — including a dark
+        appearance, where ink and canvas swap — inverts correctly on its own.
+
+        --nav-mix runs a little ahead of --nav-p so the text finishes turning
+        before the surface is fully opaque, never sitting at low contrast.
+    */
+    --nav-pill: color-mix(in oklab, var(--color-ink) 94%, var(--color-canvas));
+    --nav-pill-ink: var(--color-canvas);
+    --nav-pill-muted: color-mix(in oklab, var(--color-canvas) 62%, var(--color-ink));
+    --nav-mix: calc(min(1, var(--nav-p) * 1.35) * 100%);
+
+    /* Ink at rest, canvas on the pill — the base every wash below is drawn from. */
+    --nav-wash: color-mix(in oklab, var(--color-ink), var(--color-canvas) var(--nav-mix));
 }
 
 /* The links are gone below md — a third track would strand the button mid-bar. */
@@ -236,17 +253,14 @@ html:not(.gsap) #header[data-scrolled] {
 
 /*
     The pill: it inherits the bar's animated box, so it never needs its own.
-    A raised warm-grey surface rather than a floating shadow — it reads as a
-    slab set into the page instead of a card hovering over it.
+    It simply fades up from nothing to the dark slab.
 */
 .nav-glass {
     opacity: var(--nav-p);
-    background-color: color-mix(in oklab, var(--color-raised) 94%, transparent);
-    backdrop-filter: blur(14px) saturate(1.4);
-    -webkit-backdrop-filter: blur(14px) saturate(1.4);
-    box-shadow:
-        0 0 0 1px color-mix(in oklab, var(--color-ink) 5%, transparent),
-        0 1px 2px -1px color-mix(in oklab, var(--color-ink) 10%, transparent);
+    background-color: color-mix(in oklab, var(--nav-pill) 96%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 26px -16px color-mix(in oklab, var(--color-ink) 55%, transparent);
 }
 
 /*
@@ -263,14 +277,27 @@ html:not(.gsap) #header[data-scrolled] {
     height: calc(2.25rem - 0.375rem * var(--nav-p));
 }
 
+.nav-avatar img {
+    outline: 1px solid color-mix(in srgb, var(--nav-wash) 14%, transparent);
+    outline-offset: -1px;
+}
+
 .nav-name {
     font-size: 0.875rem;
     line-height: 1.125rem;
+    color: color-mix(in oklab, var(--color-ink), var(--nav-pill-ink) var(--nav-mix));
 }
 
 /*
     The availability line collapses as you scroll — and its status dot fades
     onto the avatar at the same moment, so the signal never disappears.
+*/
+/*
+    The availability line collapses to nothing in BOTH axes. Height alone left
+    its box holding the card open to the width of "Available for work" long
+    after the text was invisible, stranding dead space between the name and
+    the links. The max-width fallback keeps it unconstrained until main.js has
+    measured the real width.
 */
 .nav-badge {
     display: flex;
@@ -278,39 +305,45 @@ html:not(.gsap) #header[data-scrolled] {
     gap: 0.3125rem;
     overflow: clip;
     height: calc(0.9375rem * (1 - var(--nav-p)));
+    max-width: calc(var(--nav-badge-w, 100vw) * (1 - var(--nav-p)));
     line-height: 1;
     opacity: calc(1 - var(--nav-p) * 2.2);
+    color: color-mix(in oklab, var(--color-muted), var(--nav-pill-muted) var(--nav-mix));
 }
 
 .nav-dot {
     width: calc(0.4375rem + 0.125rem * var(--nav-p));
     height: calc(0.4375rem + 0.125rem * var(--nav-p));
     opacity: calc(var(--nav-p) * 1.8 - 0.5);
-    box-shadow: 0 0 0 1.5px var(--color-canvas);
+    background-color: color-mix(in oklab, var(--color-canvas), var(--nav-pill) var(--nav-mix));
 }
 
 /* The sliding indicator behind the links — hover, and the current page. */
 .nav-link {
+    color: color-mix(in oklab, var(--color-muted), var(--nav-pill-muted) var(--nav-mix));
     transition: color 0.25s var(--ease-out-quart);
 }
 
 .nav-link:hover,
 .nav-link[data-active] {
-    color: var(--color-ink);
+    color: color-mix(in oklab, var(--color-ink), var(--nav-pill-ink) var(--nav-mix));
 }
 
-/* An ink wash, not a fixed grey — it has to read on the canvas AND on the pill. */
+/* Drawn from --nav-wash, so it darkens the canvas and lightens the pill. */
 .nav-indicator {
     width: 0;
     opacity: 0;
-    background-color: color-mix(in oklab, var(--color-ink) 7%, transparent);
+    background-color: color-mix(in srgb, var(--nav-wash) 10%, transparent);
     transition: opacity 0.3s var(--ease-out-quart);
 }
 
+/* The button inverts too, or it would vanish into the slab. */
 .nav-cta {
     font-size: 0.875rem;
     padding-block: calc(0.5rem - 0.0625rem * var(--nav-p));
     padding-inline: calc(1rem - 0.125rem * var(--nav-p)) calc(0.875rem - 0.125rem * var(--nav-p));
+    background-color: color-mix(in oklab, var(--color-accent), var(--nav-pill-ink) var(--nav-mix));
+    color: color-mix(in oklab, var(--color-accent-ink), var(--color-ink) var(--nav-mix));
     transition: opacity 0.25s var(--ease-out-quart);
 }
 
@@ -329,6 +362,8 @@ html:not(.gsap) #header[data-scrolled] {
 .nav-menu {
     width: calc(2.25rem - 0.125rem * var(--nav-p));
     height: calc(2.25rem - 0.125rem * var(--nav-p));
+    border-color: color-mix(in srgb, var(--nav-wash) 18%, transparent);
+    color: color-mix(in oklab, var(--color-ink), var(--nav-pill-ink) var(--nav-mix));
 }
 
 /*
