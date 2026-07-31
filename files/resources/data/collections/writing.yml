@@ -1,0 +1,15 @@
+# Column types for writing.json — the source of truth the builder
+# reads: richtext columns open in the rich editor (Content drawer
+# and any section repeater listing this collection).
+fields:
+    slug: { type: text }
+    title: { type: text }
+    description: { type: textarea }
+    date: { type: text }
+    dateFormatted: { type: text }
+    readTime: { type: text }
+    featured: { type: text }
+    link: { type: url }
+    content: { type: richtext }
+    nextTitle: { type: text }
+    nextLink: { type: text }
