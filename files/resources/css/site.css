@@ -222,7 +222,12 @@ html:not(.gsap) #header[data-scrolled] {
     max-width: min(72rem, 100%);
     margin-inline: auto;
     column-gap: calc(1.5rem - 0.875rem * var(--nav-p));
-    padding-inline: calc(1.5rem - 1rem * var(--nav-p));
+    /*
+        Asymmetric on purpose: closed, the avatar gets 12px from the pill's
+        cap and the button 9px — a circle against a round cap needs more air
+        than a matching rounded rectangle. Both ends rest at 24px open.
+    */
+    padding-inline: calc(1.5rem - 0.75rem * var(--nav-p)) calc(1.5rem - 0.9375rem * var(--nav-p));
     padding-block: calc(1rem - 0.5rem * var(--nav-p));
     will-change: width;
 
@@ -339,6 +344,15 @@ html:not(.gsap) #header[data-scrolled] {
 
 /* The button inverts too, or it would vanish into the slab. */
 .nav-cta {
+    /*
+        The stacking context is load-bearing: without one, Chrome fails to
+        repaint this color-mix background as the inherited --nav-p animates
+        (getComputedStyle reads the right color, the paint stays stale), so
+        the button sat dark-on-dark on every page whose GSAP intro left no
+        inline transform on the nav items. Text color repaints fine; only
+        the background sticks. isolate is the cheapest correct trigger.
+    */
+    isolation: isolate;
     font-size: 0.875rem;
     padding-block: calc(0.5rem - 0.0625rem * var(--nav-p));
     padding-inline: calc(1rem - 0.125rem * var(--nav-p)) calc(0.875rem - 0.125rem * var(--nav-p));
