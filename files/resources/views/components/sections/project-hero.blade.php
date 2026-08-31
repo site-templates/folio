@@ -43,7 +43,7 @@
 
         @if ($project->external)
         <p class="reveal-2 mt-6" data-reveal>
-            <a href="{{ $project->external }}" rel="noopener" class="group inline-flex items-center gap-2 text-sm font-medium text-ink">
+            <a href="{{ $project->external }}" target="_blank" rel="noopener" class="group inline-flex items-center gap-2 text-sm font-medium text-ink">
                 <span class="link-draw">{{ $externalText }}</span>
                 <svg viewBox="0 0 16 16" class="size-4 fill-current transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
                     <path fill-rule="evenodd" d="M4.22 11.78a.75.75 0 0 1 0-1.06L9.44 5.5H5.75a.75.75 0 0 1 0-1.5h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V6.56l-5.22 5.22a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd"/>

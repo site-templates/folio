@@ -26,7 +26,7 @@
 
             <nav aria-label="Social" class="flex items-center gap-1">
                 @foreach ($socials as $social)
-                <a href="{{ $social->url }}" rel="noopener" class="rounded-full px-3 py-1.5 font-mono text-xs text-muted hover:text-ink">{{ $social->text }}</a>
+                <a href="{{ $social->url }}" target="_blank" rel="noopener" class="rounded-full px-3 py-1.5 font-mono text-xs text-muted hover:text-ink">{{ $social->text }}</a>
                 @endforeach
             </nav>
         </div>
