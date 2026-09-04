@@ -26,7 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
     <script src="/js/main.js" defer></script>
 </head>
-<body class="min-h-dvh bg-canvas font-sans text-ink antialiased">
+<body class="min-h-dvh bg-canvas font-sans text-ink antialiased" data-instant-navigation>
 
     <!-- The site-wide nav. Its links live in resources/data/site.json (nav_links); the markup is components/nav.blade.php. -->
     <x-nav :links="$site->nav_links"/>
